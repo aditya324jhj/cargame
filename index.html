@@ -22,12 +22,12 @@ h1,h4
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<title>Moving Rover On</title>
+	<title>car game</title>
 </head>
 <body onload="add();">
 <center>
 <h1>car racing</h1>
-<h1> game status : <span id="game_status"> </span></h1>
+<h1 id="rt"> game status : <span id="game_status"> </span></h1>
 <canvas id="myCanvas" width="800" height="600">
 
 </canvas>
@@ -86,34 +86,34 @@ background_image = "racing.jpg";
 
     window.addEventListener("keydown", my_keydown);
 
-    function my_keydown(e) {
+    function my_keydown(e) 
+    {
         keyPressed = e.keyCode;
         console.log(keyPressed);
-        if (keyPressed == '37') {
+        if (keyPressed == '37') 
+        {
             car1left();
             console.log("left");
         }
 
-        if (keyPressed == '38') {
+        if (keyPressed == '38')
+        {
             car1up();
-            console.log("up");
+            console.log("1up");
         }
-        if (keyPressed == '39') {
+        if (keyPressed == '39') 
+        {
             car1right();
             console.log("right");
         }
 
-        if (keyPressed == '40') {
+        if (keyPressed == '40')
+        {
            car1down();
             console.log("down");
         }
 
 
-    }
-
-    function my_keydown(e) {
-        keyPressed = e.keyCode;
-        console.log(keyPressed);
         if (keyPressed == '65') {
             car2a();
             console.log("a");
@@ -125,18 +125,123 @@ background_image = "racing.jpg";
         }
         if (keyPressed == '83') {
             car2s();
-            console.log("right");
+            console.log("s");
         }
 
         if (keyPressed == '87') {
             car2w();
             console.log("w");
         }
-
+        if (car1_x > 500)
+        {
+            console.log("car1 won");
+            var won = ("car 1 won");
+            document.getElementById("game_status").innerHTML = won;
+        }
+        
+        if (car2_x > 500)
+        {
+            console.log("car2 won");
+            won = ("car 2 won");
+            document.getElementById("game_status").innerHTML = won;
+        }
 
     }
+    function car2w() {
+    if (car2_y >= 0) {
+        
+car2_y = car2_y - 10;
+        console.log("when up arrow is  pressed =" + car2_x + " - " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
 
+    function car2s() {
+    if (car2_y <= 500) {
+        
+car2_y = car2_y + 10;
+        console.log("when up arrow is  pressed =" + car2_x + " - " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
 
+    function car2d() {
+    if (car2_x <= 500) {
+        
+car2_x = car2_x + 10;
+        console.log("when up arrow is  pressed =" + car2_x + " - " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+
+    function car2a() {
+    if (car2_x >= 0) {
+        
+car2_x = car2_x - 10;
+        console.log("when up arrow is  pressed =" + car2_x + " - " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+
+    function car1up() {
+    if (car1_y >= 0) {
+        
+car1_y = car1_y - 10;
+        console.log("when up arrow is  pressed =" + car1_x + " - " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+
+    function car1down() {
+    if (car1_y <= 500) {
+        
+car1_y = car1_y + 10;
+        console.log("when up arrow is  pressed =" + car1_x + " - " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+
+    function car1right() {
+    if (car1_x <= 500) {
+        
+car1_x = car1_x + 10;
+        console.log("when up arrow is  pressed =" + car1_x + " - " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+
+    function car1left() {
+    if (car1_x >= 0) {
+        
+car1_x = car1_x - 10;
+        console.log("when up arrow is  pressed =" + car1_x + " - " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+    }
+    }
+   
+    /*
+    if (car1_x > 300)
+        {
+            console.log("car1 won");
+            document.write("car 1 won");
+        }
+*/
  </script>
 
 </html>
